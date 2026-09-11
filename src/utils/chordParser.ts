@@ -1,5 +1,5 @@
 import { transposeChord } from './musicTheory';
-import { SongSection, Measure } from '../types';
+import { SongSection } from '../types';
 
 export interface LyricToken {
   type: 'chord' | 'text';

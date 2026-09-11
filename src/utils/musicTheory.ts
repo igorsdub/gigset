@@ -10,9 +10,6 @@ const FLAT_EQUIVALENTS: Record<string, string> = {
   'Cb': 'B'
 };
 
-// Common preferred sharp/flat naming per key context
-const PREFERRED_FLATS = ['F', 'Bb', 'Eb', 'Ab', 'Db', 'Gb', 'Dm', 'Gm', 'Cm', 'Fm', 'Bbm'];
-
 export function normalizeNote(note: string): string {
   return FLAT_EQUIVALENTS[note] || note;
 }

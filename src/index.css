@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #121214;
+  --card-bg: #1e1e24;
+  --accent: #4f46e5;
+  --chord-color: #38bdf8;
+  --text: #f3f4f6;
+  --border: #333338;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #18181b;
+}
+::-webkit-scrollbar-thumb {
+  background: #3f3f46;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #52525b;
+}
+
+/* Chords & Tabs Rendering */
+.tab-sheet {
+  font-family: "Courier New", Courier, monospace;
+  white-space: pre-wrap;
+  line-height: 2.3;
+  font-size: 1.05rem;
+}
+
+.chord-inline {
+  position: relative;
+  display: inline-block;
+  color: inherit;
+}
+
+.chord-inline::before {
+  content: attr(data-chord);
+  position: absolute;
+  top: -1.25em;
+  left: 0;
+  color: var(--chord-color);
+  font-weight: 700;
+  font-size: 0.9em;
+  letter-spacing: -0.02em;
+}
+
+/* iReal Pro Style Measure Box */
+.measure-box {
+  min-height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-right: 2px solid #52525b;
+  border-bottom: 2px solid #52525b;
+  background-color: #1a1a20;
+  padding: 0.5rem 0.25rem;
+}
+
+.measure-box:first-child {
+  border-left: 2px solid #52525b;
+}
+
+.measure-box.repeat-start::before {
+  content: "||:";
+  position: absolute;
+  left: 3px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.75rem;
+  color: #a1a1aa;
+}
+
+.measure-box.repeat-end::after {
+  content: ":||";
+  position: absolute;
+  right: 3px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.75rem;
+  color: #a1a1aa;
+}
