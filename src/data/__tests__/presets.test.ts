@@ -57,11 +57,11 @@ describe('Activities Fair Preset Event & Songs', () => {
     });
   });
 
-  it('includes valid YouTube Music reference URLs for the songs', () => {
+  it('includes valid reference URLs for the songs', () => {
     const sukiyaki = PRESET_LIBRARY.find(s => s.title === 'Sukiyaki');
-    expect(sukiyaki?.referenceUrl).toContain('music.youtube.com');
+    expect(sukiyaki?.referenceUrl).toContain('tabs.ultimate-guitar.com');
 
     const laufey = PRESET_LIBRARY.find(s => s.title === 'From the Start');
-    expect(laufey?.referenceUrl).toContain('music.youtube.com');
+    expect(laufey?.referenceUrl).toContain('tabs.ultimate-guitar.com');
   });
 });

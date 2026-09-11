@@ -67,11 +67,11 @@ export const SongCard: React.FC<SongCardProps> = ({
                   href={song.referenceUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  title="Listen to reference track on YouTube Music"
+                  title="Open reference guitar tab or track"
                   className="inline-flex items-center gap-1 text-stage-accent hover:underline decoration-dotted transition-colors"
                 >
                   <ExternalLink className="w-3 h-3" />
-                  <span>YouTube Music</span>
+                  <span>{song.referenceUrl.includes('ultimate-guitar') ? 'Guitar Tab' : 'Reference'}</span>
                 </a>
               )}
             </div>
