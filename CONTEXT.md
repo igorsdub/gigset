@@ -27,3 +27,12 @@ _Avoid_: iReal view, box view, lead sheet.
 **Lyrics View**:
 A formatted representation presenting lyrics with chords positioned above or inline with vocal phrasing.
 _Avoid_: Tab view, chordsheet, guitar tab.
+
+**Stage Mode**:
+A high-contrast, distraction-free performance view with screen wake-lock, Bluetooth pedal navigation, quick transposition, and auto-scrolling.
+_Avoid_: Performance screen, gig display, live view.
+
+**Measure**:
+A unit of musical time bounded by pipe delimiters (`|`) containing chord changes and beats within a song section.
+_Avoid_: Barline, cell, chord box.
+
