@@ -51,7 +51,9 @@ describe('Activities Fair Preset Event & Songs', () => {
 
     activitiesFair?.songs.forEach((entry, idx) => {
       const song = PRESET_LIBRARY.find(s => s.id === entry.libraryId)!;
-      const effectiveKey = shiftNote(song.defaultKey, entry.transpose);
+      const effectiveKey = (entry.transpose !== 0 && entry.targetKey)
+        ? entry.targetKey
+        : shiftNote(song.defaultKey, entry.transpose);
       expect(effectiveKey).toBe(expectedMappings[idx].targetKey);
       expect(entry.performer).toBe(expectedMappings[idx].performer);
     });

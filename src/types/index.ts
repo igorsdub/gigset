@@ -16,6 +16,7 @@ export interface SongEntry {
   transpose: number; // Semitone offset from song.defaultKey
   viewModeOverride?: ViewMode; // If undefined, inherits masterViewMode
   performer?: string;
+  targetKey?: string; // Explicit key override (e.g. 'Db') to preserve desired enharmonic spelling
 }
 
 export interface Event {

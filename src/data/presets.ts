@@ -227,73 +227,113 @@ export const PRESET_LIBRARY: Song[] = [
     defaultKey: 'G',
     tempo: 66,
     timeSignature: '4/4',
-    referenceUrl: 'https://tabs.ultimate-guitar.com/tab/billie-eilish/idontwannabeyouanymore-chords-2200427',
+    referenceUrl: 'https://tabs.ultimate-guitar.com/tab/billie-eilish/idontwannabeyouanymore-chords-2089655',
     content: `{title: idontwannabeyouanymore}
 {artist: Billie Eilish}
 {key: G}
 
 {section: Intro}
-| [Cmaj7] / / / | [Gmaj7] / / / | [Am] / / / | [Gmaj7] / / / |
+| [Cmaj7] [Gmaj7] [Am] [Gmaj7] |
 
 {section: Verse 1}
-| [Cmaj7]Don't be that way | [Gmaj7]Fall apart twice a day |
-| [Am]I just wish you could [Gmaj7]feel what you say | [Gmaj7] / / / |
-| [Cmaj7]Show, never tell | [Gmaj7]But I know you too well |
-| [Am]Got a mood that you [Dsus2]wish you could [D]sell | [D] / / / |
+| [Cmaj7]Don't be that way |
+| Fall a[Gmaj7]part twice a day |
+| I just [Am]wish you could feel what you[Gmaj7] say |
+| [Cmaj7]Show, never tell |
+| But I [Gmaj7]know you too well |
+| Got a [Am]mood that you wish you cou[Dsus2]ld sell[D] |
 
 {section: Chorus}
-| [Cmaj7]If teardrops could be bottled | [Gmaj7]There'd be swimming pools filled by models |
-| [Am]Told "that tight dress is what makes you a [B7]whore" | [B7] / / / |
-| [Cmaj7]If "I love you" was a promise | [Gmaj7]Would you break it, if you're honest |
-| [Am]Tell the mirror what you know she's heard [D]before | [D] / / / |
-| [Cmaj7]Idontwannabeyou [B7]anymore | [Em] / / / |
+| If [Cmaj7]teardrops could be bottled |
+| There'd be [Gmaj7]swimming pools filled by models |
+| Told "that t[Am]ight dress is what makes you a w[B7]hore" |
+| If "I [Cmaj7]love you" was a promise |
+| Would you [Gmaj7]break it, if you're honest |
+| Tell the [Am]mirror what you know she's heard be[D]fore[Dsus2]      [D] |
+| [Cmaj7]Idontwanna[B7]beyouanym[Em]ore |
 
 {section: Verse 2}
-| [Cmaj7]Hand, hands about mine | [Gmaj7]Was it something I said? |
-| [Am]Baby, don't waste your [Gmaj7]time | [Gmaj7] / / / |
-| [Cmaj7]Really thought I lost my mind | [Gmaj7]If only you could see |
-| [Am]The way you look from the [Dsus2]in-[D]side | [D] / / / |
+| [Cmaj7]Hands getting cold |
+| Losing [Gmaj7]feeling's getting old |
+| Was I [Am]made from a brok[Gmaj7]en mold? |
+| [Cmaj7]Hurt, I can't shake |
+| We've made [Gmaj7]every mistake |
+| Only [Am]you know the way that [D]I br[Dsus2]eak   [D] |
 
-{section: Outro}
-| [Cmaj7]If "I love you" was a promise | [Gmaj7]Would you break it, if you're honest |
-| [Am]Tell the mirror what you know she's heard [D]before | [D] / / / |
-| [Cmaj7]Idontwannabeyou [B7]anymore | [Em] / / / |`
+{section: Chorus}
+| If [Cmaj7]teardrops could be bottled |
+| There'd be [Gmaj7]swimming pools filled by models |
+| Told "that t[Am]ight dress is what makes you a w[B7]hore" |
+| If "I [Cmaj7]love you" was a promise |
+| Would you [Gmaj7]break it, if you're honest |
+| Tell the [Am]mirror what you know she's heard be[D]fore[Dsus2]      [D] |
+| [Cmaj7]Idontwanna[B7]beyou |
+| [Cmaj7]Idontwanna[B7]beyou |
+| [Cmaj7]Idontwanna[B7]beyou... anym[Emadd9]ore |`
   },
   {
     id: 's8',
     title: 'From the Start',
     artist: 'Laufey',
-    defaultKey: 'Db',
+    defaultKey: 'C',
     tempo: 84,
     timeSignature: '4/4',
-    referenceUrl: 'https://tabs.ultimate-guitar.com/tab/laufey/from-the-start-chords-4780517',
+    referenceUrl: 'https://tabs.ultimate-guitar.com/tab/laufey/from-the-start-chords-5825828',
     content: `{title: From the Start}
 {artist: Laufey}
-{key: Db}
+{key: C}
 
-{section: Intro}
-| [Dbmaj7] / / / | [Ebm9] / [Ab13] / | [Dbmaj7] / / / | [Ebm9] / [Ab13] / |
+| [Dm] [Gmaj7] [C] |
 
-{section: Verse 1}
-| [Dbmaj7]Don't you notice how | I get [Ebm9]quiet when there's [Ab13]no one else around? |
-| [Dbmaj7]Me and you and awkward silence | [Ebm9]Don't you dare look [Ab13]at my eyes |
-| [Fm7]I've been hiding [Bb7#5]something lately | [Ebm9]Scared of what's [Ab13]inside |
+| Don't you [Dm]notice [Gmaj7]how |
+| [Cmaj7]I get quiet when there's no one |
+| [Dm]Else ar[Gmaj7]ound? |
+| [Cmaj7]Me and you and awkward silence |
+| [Dm]Don't you d[Gmaj7]are |
+| [Em]Look at me that [A]way |
+| [Dm]I don't need reminders of how |
+| [Gmaj7]You don't feel the same |
 
-{section: Verse 2}
-| [Dbmaj7]Oh, you couldn't care less | [Ebm9]Tuesday night talking 'bout [Ab13]your crush and |
-| [Dbmaj7]I'm dying, don't you see | [Ebm9]There's no one else but [Ab13]you for me? |
-| [Fm7]I sigh and bite my tongue, [Bb7#5]listening to your song |
-| [Ebm9]While you play along | [Ab13] / / / |
+| Oh, the [Dm]burning [Gmaj7]pain |
+| [Cmaj7]Listening to you harp on 'bout some |
+| [Dm]new sou[Gmaj7]lmate |
+| [Cmaj7]"She's so perfect, " blah, blah, blah |
+| Oh,[Dm] how I[Gmaj7] wish |
+| you'll[Em] wake up one[A] day |
+| [Dm]Run to me, confess your love, |
+| at [Gmaj7]least just let me say |
 
-{section: Chorus}
-| [Gbmaj7]That's when I say I've loved you from the [Gbm7]start |
-| In a [Fm7]whisper made for two, say you [Bb7#5]love me too |
-| [Ebm9]Cupid, walk right by, [Ab13]arrow in my eye |
-| [Dbmaj7]Listening to you talk, I'm burning [Db7]up inside |
-| [Gbmaj7]That's when I say I've loved you from the [Gbm7]start |
-| In a [Fm7]whisper made for two, say you [Bb7#5]love me too |
-| [Ebm9]Cupid, walk right by, [Ab13]arrow in my eye |
-| [Dbmaj7] / / / | [Ebm9] / [Ab13] / |`
+| That [Dm]when I t[Gmaj7]alk to you oh, |
+| [Cmaj7]Cupid walks right through |
+| And [Dm]shoots an [Gmaj7]arrow |
+| [Cmaj7]through my heart |
+| And [Dm]I sound like a[Gmaj7] loon, |
+| but [Em]don't you [A]feel it too? |
+| Co[Dm]nfess I [Gmaj7]loved you |
+| from the [Cmaj7]start |
+
+| What's a [Dm]girl to [Gmaj7]do? |
+| [Cmaj7]Lying on my bed, staring |
+| in[Dm]to the b[Gmaj7]luе |
+| [Cmaj7]Unrequited, terrifying |
+| [Dm]Lovе is [Gmaj7]driving me |
+| a [Em]bit ins[A]ane |
+| [Dm]Have to get this off my chest |
+| I'm [Gmaj7]telling you today |
+
+| That [Dm]when I t[Gmaj7]alk to you oh, |
+| [Cmaj7]Cupid walks right through |
+| And [Dm]shoots an [Gmaj7]arrow |
+| [Cmaj7]through my heart |
+| And [Dm]I sound like a[Gmaj7] loon, |
+| but [Em]don't you f[A]eel it too? |
+| Co[Dm]nfess I [Gmaj7]loved you |
+| from the [Cmaj7]start |
+
+| [Dm]Confess I [Gmaj7]loved you |
+| Just[Em] thinking of [A]you |
+| I [Dm]know I've [Gmaj7]loved you |
+| from the [C]start. |`
   },
   {
     id: 's9',
@@ -302,38 +342,86 @@ export const PRESET_LIBRARY: Song[] = [
     defaultKey: 'G',
     tempo: 98,
     timeSignature: '4/4',
-    referenceUrl: 'https://tabs.ultimate-guitar.com/tab/vaundy/odoriko-chords-4116413',
+    referenceUrl: 'https://tabs.ultimate-guitar.com/tab/vaundy/odoriko-chords-4085335',
     content: `{title: Odoriko}
 {artist: Vaundy}
 {key: G}
 
+| [G] |
+| [B7] |
+| [Em] |
+| [C] |
+| [Cm] |
+
 {section: Intro}
-| [G] / / / | [B7] / / / | [Em] / / / | [C] / / / |
-| [G] / / / | [B7] / / / | [Em] / / / | [C] / / / |
+| [G] [B7] [Em] [C] |
 
 {section: Verse 1}
-| [G]Nee, dokka ni oite[B7]kita you na |
-| [Em]Koto ga hitotsu futatsu uiteiru [C]kedo |
-| [G]Nee, chanto hirot[B7]teokou |
-| [Em]Hajikete wasureteshimau [C]mae ni |
+| Nee, [G]dokka ni oit[B7]ekita you na |
+| Koto [Em]ga hitotsu futatsu uiteir[C]u kedo |
+| Nee, ch[G]anto hiro[B7]tteokou |
+| Haji[Em]kete wasureteshimau m[C]ae ni |
 
-{section: Chorus 1}
-| [G]Mada mawari tsuzu[B7]keteru |
-| [Em]Bokura no hibi wa koto mo [C]naku | [Cm] / / / |
-| [G]Kimi ga warau tabi [B7]ni |
-| [Em]Yureteru, yureteru kaze [C]no naka | [Cm] / / / |
+{section: Chorus}
+| [G]Mawaridashita ano ko to b[B7]oku no mirai ga |
+| [Em]Tomari dokka de mata y[C]arinao[Cm]setara |
+| [G]Mawaridashita ano ko to b[B7]oku ga higaisha |
+| [Em]Zura de dokka wo mata n[C]eriaru[Cm]ketara na |
+
+| [G]Tu-ru-ru-ru tu-ru-ru-ru tu-ru-ru |
+| [B7]Tu-ru-ru-ru tu-ru-ru-ru tu-ru-ru |
+| [Em]Tu-ru-ru-ru tu-ru-ru-ru tu-ru-ru |
+| [C]Tu-ru-ru-ru tu-ru-ru-ru [Cm]tu-ru-ru |
 
 {section: Verse 2}
-| [G]Nee, itsuka wa owatte[B7]shimau nara |
-| [Em]Bokura wa nani o nokoseru darou [C]ka |
-| [G]Nee, tsunaida te no [B7]nukumori mo |
-| [Em]Itsuka wa kiete shimau no [C]ka na |
+| Ano n[G]e, watashi ana[B7]ta ni atta no |
+| Yume [Em]no naka ni oitekit[C]a kedo[Cm] ne |
+| Nee, do[G]ushite watas[B7]hi ga suki nano |
+| Ichi[Em]do shika atta koto ga n[C]ai no ni [Cm]ne |
 
-{section: Chorus 2 / Outro}
-| [G]Odoriko yo kono mama [B7]odori mashou |
-| [Em]Asa ga kuru made [C]futari dake de | [Cm] / / / |
-| [G]Mada mawari tsuzu[B7]keteru |
-| [Em]Bokura no sekai de [C] / [Cm] / | [G] / / / |`
+{section: Pre-Chorus}
+| [G]Omoi wo kette |
+| [G]Futaride shitenda |
+| Wa[B7]surenai ai wo utau |
+| Kotoba wo fu[Em]tari ni kashite |
+| [Em]Chikai wo tatenda |
+| Was[C]urenai ai wo utau you ni ne |
+
+{section: Chorus}
+| [G]Mawaridashita ano ko to b[B7]oku no mirai ga |
+| [Em]Tomari dokka de mata y[C]arinao[Cm]setara |
+| [G]Mawaridashita ano ko to b[B7]oku ga higaisha |
+| [Em]Zura de dokka wo mata n[C]eriaru[Cm]ketara na |
+
+| [G]Tu-ru-ru-ru tu-ru-ru-ru tu-ru-ru |
+| [B7]Tu-ru-ru-ru tu-ru-ru-ru tu-ru-ru |
+| [Em]Tu-ru-ru-ru tu-ru-ru-ru tu-ru-ru |
+| [C]Tu-ru-ru-ru tu-ru-ru-ru [Cm]tu-ru-ru |
+
+| [G]Tu-ru-ru-ru tu-ru-ru-ru tu-ru-ru |
+| [B7]Tu-ru-ru-ru tu-ru-ru-ru tu-ru-ru |
+| [Em]Tu-ru-ru-ru tu-ru-ru-ru tu-ru-ru |
+| [C]Tu-ru-ru-ru tu-ru-ru-ru [Cm]tu-ru-ru |
+
+{section: Chorus}
+| [G]Mawaridashita ano ko to b[B7]oku no mirai ga |
+| [Em]Tomari dokka de mata y[C]arinao[Cm]setara |
+| [G]Mawaridashita ano ko to b[B7]oku ga higaisha |
+| [Em]Zura de dokka wo mata n[C]eriaru[Cm]ketara na |
+
+{section: Outro}
+| [G]Jidai ni notte bokutachi wa |
+| [B7]Kawarazu ai ni ikiru darou |
+| [Em]Bokura ga chitte nokoru no wa |
+| [C]Kawaranu ai no [Cm]uta nandarou na |
+| [G]Jidai ni notte bokutachi wa |
+| [B7]Kawarazu ai ni ikiru darou |
+| [Em]Bokura ga chitte nokoru no wa |
+| [C]Kawaranu ai no [Cm]uta nandarou na |
+| [G]Tu-ru-ru-ru tu-ru-ru-ru tu-ru-ru |
+| [B7]Tu-ru-ru-ru tu-ru-ru-ru tu-ru-ru |
+| [Em]Tu-ru-ru-ru tu-ru-ru-ru tu-ru-ru |
+| [C]Tu-ru-ru-ru tu-ru-ru-ru [Cm]tu-ru-ru |`
   },
   {
     id: 's10',
@@ -342,31 +430,46 @@ export const PRESET_LIBRARY: Song[] = [
     defaultKey: 'A',
     tempo: 65,
     timeSignature: '4/4',
-    referenceUrl: 'https://tabs.ultimate-guitar.com/tab/misc-soundtrack/hopelessly-devoted-to-you-chords-2751433',
+    referenceUrl: 'https://tabs.ultimate-guitar.com/tab/misc-soundtrack/grease-hopelessly-devoted-to-you-chords-78008',
     content: `{title: Hopelessly Devoted to You}
 {artist: Olivia Newton-John}
 {key: A}
 
 {section: Intro}
-| [A] / / / | [Dm] / / / | [A] / / / | [Dm] / / / |
+| [Dm] [A] [Dm] [A] [Dm] [A] |
 
 {section: Verse 1}
-| [A]Guess mine is not the [C#m7]first heart broken | [D] / / / |
-| [Bm7]My eyes are not the [E7]first to cry | [Amaj7] / / / |
-| [A]I'm not the [F#7]first to know there's | [G6]just [F#7]no getting [Bm7]over you |
-| [C#m7] [Cm7] | [Bm7] / [E7] / |
 
-{section: Verse 2}
-| [A]You know I'm just a [C#m7]fool who's willing | [D] / / / |
-| [Bm7]To sit around and [E7]wait for you | [Amaj7] / / / |
-| [A]Baby, can't you [F#7]see there's | [G6]nothing [F#7]else for [Bm7]me to do? |
-| [C#m7]I'm [Cm7]hopelessly [Bm7]devoted to [Dm]you | [A] / / / |
+| Guess [A]mine is not the [C#m7]first heart [D]broken |
+| My [Bm7]eyes are not the [E7]first to [Amaj7]cry        [A6] |
+| I'm [A]not the first to [F#7]know there's [G6]just no gettin' [F#7]over [Bm7]you [C#m7]      [Cm7]     [Bm7] |
+
+| I [A]know I'm just a [C#m7]fool who's [D]willing |
+| To [Bm7]sit around and [E7]wait for [Amaj7]you        [A6] |
+| But, [A]baby, can't you [F#7]see there's [G6]nothin' else for [F#7]me to [Bm7]do |
+| I'm [C#m7]hopelessly [Cm7]de - [Bm7]voted to [Dm]you      [A] |
 
 {section: Chorus}
-| [Gm7]But now there's [C7]nowhere to hide | [F]Since you pushed my [Fmaj7]love aside |
-| [Cdim]I'm [Gm7]out of my head, [C7]hopelessly devoted to [Dm]you |
-| [Dm/C#]Hopelessly [Dm/C]devoted to [Dm/B]you |
-| [Gm7]Hopelessly [C7]devoted to [Dm]you | [A] / / / |`
+
+| But now there's [Gm7]nowhere to hide since you pushed my love a[C7]side[Caug] |
+| I'm [F]out of my [Fmaj7]head, [Cdim]hopelessly devoted to [Gm7]you |
+| [Gm7]Hopelessly de[C7]voted to [Dm]you  [Dm/C#]         [Dm/C]        [Dm/B] |
+| [Gm7]Hopelessly de[C7]voted to [Dm]you      [A] |
+
+{section: Verse 2}
+
+| My [A]head is sayin',[C#m7]     "Fool, for[D]get him" |
+| My [Bm7]heart is sayin', [E7]   "Don't let [Amaj7]go"        [A6] |
+| [A]Hold on to the [F#7]end, [G6]that's what I in[F#7]tend to [Bm7]do |
+| I'm [C#m7]hopelessly [Cm7]de - [Bm7]voted to [Dm]you      [A] |
+
+{section: Chorus}
+
+| But now there's [Gm7]nowhere to hide since you pushed my love a[C7]side[Caug] |
+| I'm [F]out of my [Fmaj7]head, [Cdim]hopelessly devoted to [Gm7]you |
+| [Gm7]Hopelessly de[C7]voted to [Dm]you  [Dm/C#]         [Dm/C]        [Dm/B] |
+| [Gm7]Hopelessly de[C7]voted to [Bbm]you       [F] |
+`
   },
   {
     id: 's11',
@@ -375,39 +478,62 @@ export const PRESET_LIBRARY: Song[] = [
     defaultKey: 'A',
     tempo: 126,
     timeSignature: '4/4',
-    referenceUrl: 'https://tabs.ultimate-guitar.com/tab/neil-diamond/sweet-caroline-chords-83738',
+    referenceUrl: 'https://tabs.ultimate-guitar.com/tab/neil-diamond/sweet-caroline-chords-1053578',
     content: `{title: Sweet Caroline}
 {artist: Neil Diamond}
 {key: A}
 
 {section: Intro}
-| [E] / / / | [E] / / / | [E] / / / | [E] / / / |
+
+| [E7] [E] [E7] [E] [E7] [A] |
+
+| [A] |
 
 {section: Verse 1}
-| [A]Where it began, | [D]I can't begin to knowing |
-| [A]But then I know it's growing [E]strong | [E] / / / |
-| [A]Was in the spring, | [D]and spring became the summer |
-| [A]Who'd have believed you'd come a[E]long? | [E] / / / |
+
+| [A] Where it began, [D]  I can't begin to knowin' |
+| [A] But then I know it's growin' [E]strong |
+| [A] Was in the spring,[D]  and spring became a summer |
+| [A] Who'd have believed you'd come a[E]long?[E7] |
 
 {section: Pre-Chorus}
-| [A]Hands, | [A6]touching hands |
-| [E]Reaching out, [D]touching me, touching [E]you | [E] / [D] [E] |
+
+| [A]Hands,[F#m]   touching hands |
+| [E] Reaching out,[D]  touching me, touching [E]you[E]  [D]  [E] |
 
 {section: Chorus}
-| [A]Sweet Caro[D]line | [D]Good times never seemed so [E]good | [E] / [D] [E] |
-| [A]I've been in[D]clined | [D]To believe they never [E]would |
+
+| [A]Sweet Caro[D]line[D], [A]  [D] good times never seemed so [E]good[E]  [D]  [E] |
+| [A]I'd be in[D]clined[D], [A]  [D] to believe they never [E]would |
 | [D]But [C#m]now [Bm]I |
 
 {section: Verse 2}
-| [A]Look at the night | [D]and it don't seem so lonely |
-| [A]We fill it up with only [E]two | [E] / / / |
-| [A]And when I hurt, | [D]hurting runs off my shoulders |
-| [A]How can I hurt when holding [E]you? | [E] / / / |
 
-{section: Chorus / Outro}
-| [A]Sweet Caro[D]line | [D]Good times never seemed so [E]good | [E] / [D] [E] |
-| [A]I've been in[D]clined | [D]To believe they never [E]would |
-| [A]Sweet Caro[D]line | [E] / / / | [A] / / / |`
+| [A] Look at the night, [D]  and it don't seem so lonely |
+| [A] We fill it up with only [E]two |
+| [A] And when I hurt,[D]  hurting runs off my shoulder |
+| [A] How can I hurt when holding [E]you?[E7] |
+
+{section: Pre-Chorus}
+
+| [A]Warm,[F#m]   touching warm |
+| [E] Reaching out,[D]  touching me, touching [E]you[E]  [D]  [E] |
+
+{section: Chorus}
+
+| [A]Sweet Caro[D]line[D], [A]  [D] good times never seemed so [E]good[E]  [D]  [E] |
+| [A]I'd be in[D]clined[D], [A]  [D] to believe they never [E]would |
+| [D]Oh  [C#m]no  [Bm]no |
+
+{section: Instrumental}
+
+| [E7] [E] [E7] [E] [E7] [A] |
+
+{section: Chorus}
+
+| [A]Sweet Caro[D]line[D], [A]  [D] good times never seemed so [E]good[E]  [D]  [E] |
+| [A]Sweet Caro[D]line[D], [A]  [D] I believe they never [E]could . . . |
+`
   },
   {
     id: 's12',
@@ -416,35 +542,31 @@ export const PRESET_LIBRARY: Song[] = [
     defaultKey: 'Dm',
     tempo: 112,
     timeSignature: '4/4',
-    referenceUrl: 'https://tabs.ultimate-guitar.com/tab/the-kooks/seaside-chords-178496',
+    referenceUrl: 'https://tabs.ultimate-guitar.com/tab/the-kooks/seaside-chords-426370',
     content: `{title: Seaside}
 {artist: The Kooks}
 {key: Dm}
 
-{section: Intro}
-| [Dm] / / / | [F] / / / | [Bb] / / / | [C] / / / |
-
 {section: Verse 1}
-| [Dm]Do you want to go to the [F]seaside? | [Bb] / [C] / |
-| [Dm]I'm not trying to say that | [F]everybody wants to [Bb]go | [C] / / / |
-| [Dm]I fell in love at the [F]seaside | [Bb] / [C] / |
-| [Dm]I handle my love [F]well, | [Bb]hope I [C]do |
+| [Dm]   Do you want to go to the [F]seaside? |
+| I'm [Bb]not trying to say that [C]everybody wants to |
+| [Dm]go. I fell in love at the [F]seaside |
+| I [Bb]handled my charm with [C]time and slight of [G]hand  [G/F] |
 
-{section: Chorus}
-| [Dm]Do you want to go to the [F]seaside? | [Bb] / [C] / |
-| [Dm]I'm not trying to say that | [F]everybody wants to [Bb]go | [C] / / / |
-| [Dm]I fell in love at the [F]seaside | [Bb] / [C] / |
-| [Dm]She handles her love [F]well, | [Bb]hope she [C]does |
+{section: Verse 2}
+| [Dm]   Do you want to go to the [F]seaside? |
+| I'm [Bb]not trying to say that [C]everybody wants to |
+| [Dm]go. I fell in love at the [F]seaside |
+| She [Bb]handled her charm with [C]time and slight of [G]hand, hand, hand..[G/F] |
 
 {section: Bridge}
-| [Dm]Down on the beach, we walked to[Bb]gether | [C] / / / |
-| [Dm]Watching the waves crash into the [Bb]sand | [C] / / / |
-| [Dm]I held your hand through stormy [Bb]weather | [C] / / / |
-| [Dm]Hoping that you would under[Bb]stand | [C] / / / |
+| [Dm]      But I'm just trying to [Bb]love you any [C] kind of way |
+| [Dm]      But I find it hard to [Bb]love you girl when your [C] far aw[G]a-a-ay, away[G/F] |
 
 {section: Outro}
-| [Dm]Do you want to go to the [F]seaside? | [Bb] / [C] / |
-| [Dm]I handle my love [F]well, | [Bb]hope I [C]do | [Dm] / / / |`
+| [Dm]   Do you want to go to the [F]seaside? |
+| I'm [Bb]not trying to say that [C]everybody wants to |
+| [Dm]go. But I fell in love on the [F]seaside[Bb], on the [F]seaside[Bb], in the [F]seaside ... |`
   },
   {
     id: 's13',
@@ -453,39 +575,77 @@ export const PRESET_LIBRARY: Song[] = [
     defaultKey: 'Dm',
     tempo: 104,
     timeSignature: '4/4',
-    referenceUrl: 'https://tabs.ultimate-guitar.com/tab/mariya-takeuchi/plastic-love-chords-2538183',
+    referenceUrl: 'https://tabs.ultimate-guitar.com/tab/2155643',
     content: `{title: Plastic Love}
 {artist: Mariya Takeuchi}
 {key: Dm}
 
 {section: Intro}
-| [Gm7] / / / | [C7] / / / | [Am7] / / / | [Dm7] / / / |
-| [Gm7] / / / | [C7] / / / | [Am7] / / / | [Dm7] / / / |
+| [Bbmaj7] [Fmaj9/A] [Gm9] [Bbmaj7/F] [Eb9] |
+| [Bbmaj7] [Am7] [D] |
+
+| [Gm9] [C7b9] [Am7] [Dm7] |
 
 {section: Verse 1}
-| [Gm7]Totsuzen no kisu ya | [C7]atsui manazashi de |
-| [Am7]Koi no puroguramu o | [Dm7]kuruwasenaide ne |
-| [Gm7]Deai to wakare | [C7]jouzu ni tanoshinde |
-| [Am7]Namida nado misenaide | [Dm7]kurasu mainichi |
-
-{section: Chorus 1}
-| [Gm7]I'm just playing games, [C7]I know that's plastic love |
-| [Am7]Dancefloor de nagareru [Dm7]merodi ni awasete |
-| [Gm7]Kokoro o tozashite [C7]karen ni mau dake |
-| [Am7]Watashi o mitomete [Dm7]iru wake ja nai |
+| [Gm9]Totsuzen no ki[C7b9]su ya [Am7]  atsui manaza[Dm7]shi de |
+| [Gm9]Koi no purogu[C7b9]ramu o [Am7]  kuruwasenai [Dm7]de ne |
+| Deai to [Gm9]wakare [Eb9]jozu ni [Dm7]uchikond[G9]e |
+| Jikan ga [Gm9]kureba [C7b9]owaru |
+| Don't [Dm7]hurry! [D7sus2] |
 
 {section: Verse 2}
-| [Gm7]Fushigi na me de mitsumeru | [C7]anata no hitomi ga |
-| [Am7]Sasayaku kotoba sae | [Dm7]shinji rarezu ni iru |
-| [Gm7]Keredo samishisa o | [C7]magirawaseru tame |
-| [Am7]Koyoi mo dareka to | [Dm7]odoreba ii |
+| [Gm9]Ai ni kizut[C7b9]suita   [Am7] anohi kara[Dm7] zutto |
+| [Gm9]Hiru to yoru ga gy[C7b9]aku no [Am7]kurashi o tsuzu[Dm7]kete |
+| Hayari no [Gm9]disco de [Eb9]odori a[Dm7]kasu uchi[G9]ni |
+| Oboeta [Gm9]majutsu [C7b9]nanoyo |
+| I'm [Dm7]sorry![Dm7]    [C/E]    [F]  [D7b9] |
 
-{section: Chorus 2 / Outro}
-| [Gm7]Don't worry! [C7]dareka ga mata |
-| [Am7]Watashi o sasotte [Dm7]kuru keredo |
-| [Gm7]Honto no ai nado [C7]koko ni wa nai no |
-| [Am7]Plastic love ga [Dm7]tsuduku dake |
-| [Gm7] / / / | [C7] / / / | [Am7] / / / | [Dm7] / / / |`
+{section: Chorus 1}
+| [Bbmaj7]Watashi no ko[C]to o keshite [Bbmaj7]honki de [C]aisanai de |
+| [Em7]Koi  [A7b9]nante t[Dm7]adano gemu |
+| [Bb]Tanoshime[C]ba so[Am7]rede ii[Dm7]no |
+| To[Bbmaj7]zashita ko[C]koro o kazaru [Bbmaj7]hadena dore[C]su mo kutsu mo |
+| [Bbmaj7]Kodo -  [Am7]ku na tomo[D]dachi [D] |
+
+{section: Guitar Solo}
+| [Gm9] [Eb9] |
+| [Dm7] [G9] |
+| [Bbmaj7] [C7b9] |
+| [Dm7] [Dm7] [Em7] [F] [D7b9] |
+
+{section: Chorus 2}
+| [Bbmaj7]Watashi o sa[C]sou hito wa [Bbmaj7]hinikuna mo[C]no ne itsumo |
+| [Em7]kare [A7b9]ni nite[Dm7]ruwa nazeka |
+| [Bbmaj7]Omoide [C]to ka[Am7]sanari[Dm7]au |
+| Gu[Bbmaj7]rasu o oto[C]shite kyu ni [Bbmaj7]namidagun[C]demo wake wa |
+| [Bbmaj7]Tazu -  [Am7]nenai [D]de ne  [D] |
+
+{section: Verse 3}
+| [Gm9]Ai ni kizut[C7b9]suita [Am7]anohi kara z[Dm7]utto |
+| [Gm9]Hiru to yoru ga gy[C7b9]aku no [Am7]kurashi o tsuzu[Dm7]kete |
+| Hayari no [Gm7]disco de [Eb9]odori a[Dm7]kasu uchi[G9]ni |
+| Oboeta [Gm9]majutsu [C7b9]nanoyo |
+| I'm [Dm7]sorry! [C/E]    [F]  [D7b9] |
+
+{section: Chorus 3}
+| [Bbmaj7]Watashi no ko[C]to o keshite [Bbmaj7]honki de [C]aisanai de |
+| [Em7]Koi  [A7b9]nante ta[Dm7]dano gemu |
+| [Bbmaj7]Tanoshime[C]ba so[Am7]rede ii[Dm7]no |
+| To[Bbmaj7]zashita ko[C]koro o kazaru [Bbmaj7]hadena dore[C]su mo kutsu mo |
+| [Bbmaj7]Kodo -  [Am7]ku na tomo[D]dachi |
+
+{section: Verse 4}
+| [Gm9]Yohuke no koso[C7b9]ku de [Am7]  nemuri ni tsuku [Dm7]koro |
+| [Gm9]Harogen raito [C7b9]dake  [Am7]  ayashiku kaga[Dm7]yaku |
+| Kori no [Gm9]yoni [Eb9]tsumetai [Dm7]onna dat[G9]o |
+| Sasayaku [Gm9]koe ga [C7b9]shitemo |
+| Don't [Dm7]worry! [D7sus2] |
+
+{section: Outro}
+| [Gm9]I'm just playing games |
+| I [C7b9]know that's plastic [Am7]love [Dm7] |
+| [Gm9]Dance to the plastic beat |
+| A[C7b9]nother morning [Am7]comes...[Dm7]. |`
   },
   {
     id: 's14',
@@ -595,7 +755,7 @@ export const PRESET_EVENTS: Event[] = [
       { libraryId: 's5', transpose: 4, performer: 'Stash' },
       { libraryId: 's6', transpose: 2, performer: 'Daehee' },
       { libraryId: 's7', transpose: 0, performer: 'Hannah Sherrod' },
-      { libraryId: 's8', transpose: 0, performer: 'Delphy' },
+      { libraryId: 's8', transpose: 1, performer: 'Delphy', targetKey: 'Db' },
       { libraryId: 's9', transpose: 0, performer: 'Daehee' },
       { libraryId: 's10', transpose: 0, performer: 'Hannah Sherrod' },
       { libraryId: 's11', transpose: 2, performer: 'Stash' },

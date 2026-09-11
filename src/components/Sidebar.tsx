@@ -164,7 +164,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
                         {evt.songs.map((entry, idx) => {
                           const song = library.find(s => s.id === entry.libraryId);
                           if (!song) return null;
-                          const currentKey = shiftNote(song.defaultKey, entry.transpose);
+                          const currentKey = (entry.transpose !== 0 && entry.targetKey)
+                            ? entry.targetKey
+                            : shiftNote(song.defaultKey, entry.transpose);
                           const isDragging = draggedSongIdx === idx;
                           const isOver = dragOverIdx === idx && draggedSongIdx !== idx;
 

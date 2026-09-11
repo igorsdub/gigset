@@ -29,7 +29,9 @@ export const SongCard: React.FC<SongCardProps> = ({
 }) => {
   const effectiveViewMode = entry.viewModeOverride || masterViewMode;
   const isChordView = effectiveViewMode === 'chord' || effectiveViewMode === 'grid';
-  const currentKey = shiftNote(song.defaultKey, entry.transpose);
+  const currentKey = (entry.transpose !== 0 && entry.targetKey)
+    ? entry.targetKey
+    : shiftNote(song.defaultKey, entry.transpose);
   const isShifted = entry.transpose !== 0;
 
   return (
