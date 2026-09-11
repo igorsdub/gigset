@@ -4,60 +4,42 @@ import { ChordView } from './ChordView';
 import { LyricsView } from './LyricsView';
 import { shiftNote, formatKeyShift } from '../utils/musicTheory';
 import { exportSongChordPro } from '../utils/exportUtils';
-import { Grid, FileText, ChevronUp, ChevronDown, Trash2, GripVertical, Download, RotateCcw } from 'lucide-react';
+import { Grid, FileText, Trash2, Download, RotateCcw } from 'lucide-react';
 
 interface SongCardProps {
   song: Song;
   entry: SongEntry;
   index: number;
-  totalSongs: number;
   masterViewMode: ViewMode;
   onShiftKey: (amount: number) => void;
   onResetKey: () => void;
-  onMove: (direction: number) => void;
   onRemove: () => void;
   onToggleViewMode: () => void;
-  onDragStart: (e: React.DragEvent, index: number) => void;
-  onDragOver: (e: React.DragEvent) => void;
-  onDrop: (e: React.DragEvent, index: number) => void;
 }
 
 export const SongCard: React.FC<SongCardProps> = ({
   song,
   entry,
   index,
-  totalSongs,
   masterViewMode,
   onShiftKey,
   onResetKey,
-  onMove,
   onRemove,
-  onToggleViewMode,
-  onDragStart,
-  onDragOver,
-  onDrop
+  onToggleViewMode
 }) => {
   const effectiveViewMode = entry.viewModeOverride || masterViewMode;
   const isChordView = effectiveViewMode === 'chord' || effectiveViewMode === 'grid';
   const currentKey = shiftNote(song.defaultKey, entry.transpose);
+  const isShifted = entry.transpose !== 0;
 
   return (
     <div
-      draggable
-      onDragStart={e => onDragStart(e, index)}
-      onDragOver={onDragOver}
-      onDrop={e => onDrop(e, index)}
-      className="bg-stage-card border border-stage-border rounded-xl p-4 sm:p-5 mb-5 shadow-md transition-all duration-150 hover:border-stage-accent/50"
+      id={`song-card-${index}`}
+      className="bg-stage-card border border-stage-border rounded-xl p-4 sm:p-5 mb-5 shadow-md transition-all duration-150 hover:border-stage-accent/50 scroll-mt-6"
     >
       {/* Header Bar */}
       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-stage-border pb-3 mb-3">
         <div className="flex items-center gap-2.5 min-w-0">
-          <div
-            title="Drag to reorder"
-            className="cursor-grab active:cursor-grabbing text-stage-muted hover:text-stage-text p-1 -ml-1 rounded"
-          >
-            <GripVertical className="w-5 h-5" />
-          </div>
           <div className="min-w-0">
             <div className="flex items-center gap-2 flex-wrap">
               <span className="text-xs font-mono text-stage-muted">#{index + 1}</span>
@@ -67,7 +49,7 @@ export const SongCard: React.FC<SongCardProps> = ({
             <div className="flex items-center gap-3 text-xs text-stage-muted mt-0.5">
               <span>
                 Key: <strong className="text-stage-text font-mono">{currentKey}</strong>
-                {entry.transpose !== 0 && (
+                {isShifted && (
                   <span className="text-stage-muted ml-1">({song.defaultKey})</span>
                 )}
               </span>
@@ -100,56 +82,40 @@ export const SongCard: React.FC<SongCardProps> = ({
             )}
           </button>
 
-          {/* Key shifts & Reset Key */}
+          {/* Key shifts & Fixed Reset Key (Option B) */}
           <div className="flex items-center bg-stage-hover rounded-lg border border-stage-border p-0.5">
             <button
               onClick={() => onShiftKey(-1)}
               title="Transpose key down 1 semitone"
-              className="px-2 py-1 text-xs text-stage-text hover:bg-stage-card rounded transition-colors"
+              className="px-2 py-1 text-xs text-stage-text hover:bg-stage-card rounded transition-colors font-medium"
             >
               Key -1
             </button>
-            <div className="w-[1px] h-3 bg-stage-border"></div>
+            <div className="w-[1px] h-3.5 bg-stage-border mx-0.5"></div>
+            <button
+              onClick={isShifted ? onResetKey : undefined}
+              disabled={!isShifted}
+              title={
+                isShifted
+                  ? `Reset key to original preset (${song.defaultKey})`
+                  : 'Already in original key'
+              }
+              className={`flex items-center gap-1 px-2 py-1 text-xs rounded transition-colors font-medium ${
+                isShifted
+                  ? 'text-amber-400 hover:text-amber-300 hover:bg-stage-card cursor-pointer'
+                  : 'text-stage-muted/40 cursor-default'
+              }`}
+            >
+              <RotateCcw className="w-3 h-3" />
+              <span>Reset</span>
+            </button>
+            <div className="w-[1px] h-3.5 bg-stage-border mx-0.5"></div>
             <button
               onClick={() => onShiftKey(1)}
               title="Transpose key up 1 semitone"
-              className="px-2 py-1 text-xs text-stage-text hover:bg-stage-card rounded transition-colors"
+              className="px-2 py-1 text-xs text-stage-text hover:bg-stage-card rounded transition-colors font-medium"
             >
               Key +1
-            </button>
-            {entry.transpose !== 0 && (
-              <>
-                <div className="w-[1px] h-3 bg-stage-border"></div>
-                <button
-                  onClick={onResetKey}
-                  title={`Reset key to original preset (${song.defaultKey})`}
-                  className="flex items-center gap-1 px-2 py-1 text-xs text-amber-400 hover:text-amber-300 hover:bg-stage-card rounded transition-colors font-medium"
-                >
-                  <RotateCcw className="w-3 h-3" />
-                  <span>Reset Key</span>
-                </button>
-              </>
-            )}
-          </div>
-
-          {/* Reordering */}
-          <div className="flex items-center bg-stage-hover rounded-lg border border-stage-border p-0.5">
-            <button
-              onClick={() => onMove(-1)}
-              disabled={index === 0}
-              title="Move song up"
-              className="p-1 text-stage-text hover:bg-stage-card rounded disabled:opacity-30 disabled:hover:bg-transparent"
-            >
-              <ChevronUp className="w-3.5 h-3.5" />
-            </button>
-            <div className="w-[1px] h-3 bg-stage-border"></div>
-            <button
-              onClick={() => onMove(1)}
-              disabled={index === totalSongs - 1}
-              title="Move song down"
-              className="p-1 text-stage-text hover:bg-stage-card rounded disabled:opacity-30 disabled:hover:bg-transparent"
-            >
-              <ChevronDown className="w-3.5 h-3.5" />
             </button>
           </div>
 
