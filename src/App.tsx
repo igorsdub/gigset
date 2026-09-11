@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useGigSetState } from './hooks/useGigSetState';
 import { Sidebar } from './components/Sidebar';
+import { StageTopbar } from './components/StageTopbar';
 import { EventHeader } from './components/EventHeader';
 import { SongCard } from './components/SongCard';
 import { AddSongModal } from './components/AddSongModal';
@@ -23,18 +24,32 @@ export const App: React.FC = () => {
     resetAllToPresets
   } = useGigSetState();
 
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [isAddSongModalOpen, setIsAddSongModalOpen] = useState(false);
   const [isNewSongModalOpen, setIsNewSongModalOpen] = useState(false);
 
   const activeEvent = state.events.find(e => e.id === state.activeEventId);
 
+  // Close drawer on Escape key
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isDrawerOpen) {
+        setIsDrawerOpen(false);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isDrawerOpen]);
+
   return (
     <div className="flex h-screen w-screen overflow-hidden bg-stage-bg text-stage-text">
-      {/* Left Sidebar */}
+      {/* Navigation Drawer / Sidebar */}
       <Sidebar
         events={state.events}
         library={state.library}
         activeEventId={state.activeEventId}
+        isOpen={isDrawerOpen}
+        onClose={() => setIsDrawerOpen(false)}
         onSelectEvent={setActiveEventId}
         onMoveSong={moveSong}
         onOpenNewSongModal={() => setIsNewSongModalOpen(true)}
@@ -42,8 +57,18 @@ export const App: React.FC = () => {
         onExportBackup={() => exportBackup(state)}
       />
 
-      {/* Main Setlist Canvas */}
-      <main className="flex-1 flex flex-col h-full overflow-y-auto p-4 sm:p-8">
+      {/* Main Content Viewport */}
+      <div className="flex-1 flex flex-col h-full overflow-hidden min-w-0">
+        {/* Persistent Sticky Stage Topbar on Mobile/Tablet */}
+        <StageTopbar
+          activeEvent={activeEvent}
+          masterViewMode={state.masterViewMode}
+          onSetMasterViewMode={setMasterViewMode}
+          onOpenDrawer={() => setIsDrawerOpen(true)}
+        />
+
+        {/* Main Setlist Canvas */}
+        <main className="flex-1 flex flex-col h-full overflow-y-auto p-4 sm:p-8">
         <div className="max-w-4xl w-full mx-auto pb-16">
           {activeEvent ? (
             <>
@@ -103,6 +128,7 @@ export const App: React.FC = () => {
           )}
         </div>
       </main>
+      </div>
 
       {/* Modals */}
       <AddSongModal
