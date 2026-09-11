@@ -20,10 +20,28 @@ _Avoid_: Sub-set, playlist, section.
 A reference to a Song placed at an ordered index inside a Set, which can specify event-specific overrides like transposed key, tempo change, or performance cue notes.
 _Avoid_: Playlist item, setlist item.
 
-**Chord Grid View**:
+**Chord View**:
 A structured, measure-by-measure visualization of harmonic progression and song form (e.g., AABA), highlighting bars, repeats, and rehearsal marks.
-_Avoid_: iReal view, box view, lead sheet.
+_Avoid_: iReal view, box view, grid view, lead sheet.
 
 **Lyrics View**:
-A formatted representation presenting lyrics with chords positioned above or inline with vocal phrasing.
+A formatted representation presenting lyrics with chords aligned directly above syllables in classic two-line monospace tab layout, avoiding any visual overlap.
 _Avoid_: Tab view, chordsheet, guitar tab.
+
+**Stage Mode**:
+A high-contrast, distraction-free performance view with screen wake-lock, Bluetooth pedal navigation, quick transposition, and auto-scrolling.
+_Avoid_: Performance screen, gig display, live view.
+
+**Measure**:
+A unit of musical time bounded by pipe delimiters (`|`) containing chord changes and beats within a song section.
+_Avoid_: Barline, cell, chord box.
+
+**Preset**:
+The baseline, immutable catalog of Songs and preconfigured Events defined in repository files on the main branch.
+_Avoid_: Default, template, seed data.
+
+**Local State**:
+The runtime browser state holding ephemeral additions, live key shifts, or setlist reorderings in localStorage.
+_Avoid_: Cache, cookie, temporary data.
+
+
