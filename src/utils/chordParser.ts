@@ -1,28 +1,26 @@
 import { transposeChord } from './musicTheory';
 import { SongSection } from '../types';
 
-export interface LyricToken {
-  type: 'chord' | 'text';
-  text: string;
-}
-
-export interface LyricLine {
+export interface TabLine {
   isSectionHeader?: boolean;
   sectionName?: string;
-  tokens: LyricToken[];
+  isChordOnly?: boolean;
+  chordLine?: string;
+  lyricLine?: string;
 }
 
 /**
- * Parses extended ChordPro content into structured lines for the Lyrics & Chords view.
+ * Parses extended ChordPro content into classic two-line synchronized tabs (chords above lyrics)
+ * guaranteeing that chords and words never overlap.
  */
-export function parseLyricsView(content: string, semitones: number): LyricLine[] {
+export function parseLyricsView(content: string, semitones: number): TabLine[] {
   const lines = content.split('\n');
-  const result: LyricLine[] = [];
+  const result: TabLine[] = [];
 
   for (const rawLine of lines) {
     const line = rawLine.trim();
     if (!line) {
-      result.push({ tokens: [{ type: 'text', text: '' }] });
+      result.push({ lyricLine: '' });
       continue;
     }
 
@@ -36,8 +34,7 @@ export function parseLyricsView(content: string, semitones: number): LyricLine[]
     if (sectionMatch) {
       result.push({
         isSectionHeader: true,
-        sectionName: sectionMatch[1] || 'Section',
-        tokens: []
+        sectionName: sectionMatch[1] || 'Section'
       });
       continue;
     }
@@ -47,55 +44,89 @@ export function parseLyricsView(content: string, semitones: number): LyricLine[]
     if (squareSectionMatch) {
       result.push({
         isSectionHeader: true,
-        sectionName: squareSectionMatch[1],
-        tokens: []
+        sectionName: squareSectionMatch[1]
       });
       continue;
     }
 
-    // Clean line of measure pipe boundaries for lyric readability, while preserving chords
-    // e.g. "| [G]Mama take this [D]badge |" -> "[G]Mama take this [D]badge"
-    let cleanedLine = rawLine.replace(/\|\s*\/+\s*/g, '| ').trim();
-    if (cleanedLine.startsWith('|')) cleanedLine = cleanedLine.substring(1).trim();
-    if (cleanedLine.endsWith('|')) cleanedLine = cleanedLine.slice(0, -1).trim();
+    // Check if the line is purely instrumental / chord progression (no actual lyrics)
+    // e.g. "| [A] / / / | [F#m] / / / |" or "| [Cm7] / / / | [F7] / / / |"
+    const strippedOfChordsAndMeasures = line
+      .replace(/\[(.*?)\]/g, '')
+      .replace(/[|/]/g, '')
+      .trim();
 
-    // Parse chords inside brackets and normal text
-    const tokens: LyricToken[] = [];
+    if (strippedOfChordsAndMeasures.length === 0) {
+      // Pure chord progression line
+      const chords = [...line.matchAll(/\[(.*?)\]/g)]
+        .map(m => m[1].trim())
+        .filter(c => c && c !== '/')
+        .map(c => transposeChord(c, semitones));
+
+      if (chords.length > 0) {
+        // Space chords evenly across the line
+        const spacedChords = chords.map(c => c.padEnd(16, ' ')).join('').trimEnd();
+        result.push({
+          isChordOnly: true,
+          chordLine: spacedChords
+        });
+      }
+      continue;
+    }
+
+    // Line contains lyrics and chords: build two-line synchronized tab
+    // Strip pipe dividers '|' and lone beat slashes '/ / /' from lyrics lines
+    const cleanedLine = line
+      .replace(/\|/g, ' ')
+      .replace(/(^|\s)(\/\s*)+/g, ' ')
+      .trim();
+
+    let chordLine = '';
+    let lyricLine = '';
+
+    // Regex to split into chords and text tokens
     const regex = /\[(.*?)\]/g;
     let lastIndex = 0;
     let match: RegExpExecArray | null;
 
     while ((match = regex.exec(cleanedLine)) !== null) {
-      if (match.index > lastIndex) {
-        tokens.push({
-          type: 'text',
-          text: cleanedLine.substring(lastIndex, match.index)
-        });
+      const textBefore = cleanedLine.substring(lastIndex, match.index);
+      if (textBefore.length > 0) {
+        lyricLine += textBefore;
       }
 
-      const chord = match[1].trim();
-      if (chord === '/' || chord === '') {
-        // Beat slash
-        tokens.push({ type: 'text', text: ' / ' });
-      } else {
-        const transposed = transposeChord(chord, semitones);
-        tokens.push({
-          type: 'chord',
-          text: transposed
-        });
+      const rawChord = match[1].trim();
+      if (rawChord && rawChord !== '/') {
+        const chord = transposeChord(rawChord, semitones);
+
+        // Pad chordLine with spaces so it aligns with the start of the current word in lyricLine
+        if (chordLine.length < lyricLine.length) {
+          chordLine += ' '.repeat(lyricLine.length - chordLine.length);
+        }
+
+        // If previous chord was long and extends past current lyric position, pad lyricLine
+        if (lyricLine.length < chordLine.length) {
+          lyricLine += ' '.repeat(chordLine.length - lyricLine.length);
+        }
+
+        chordLine += chord;
+
+        // Ensure at least one space before the next chord can start
+        chordLine += ' ';
       }
 
       lastIndex = regex.lastIndex;
     }
 
+    // Append any trailing text after the last chord
     if (lastIndex < cleanedLine.length) {
-      tokens.push({
-        type: 'text',
-        text: cleanedLine.substring(lastIndex)
-      });
+      lyricLine += cleanedLine.substring(lastIndex);
     }
 
-    result.push({ tokens });
+    result.push({
+      chordLine: chordLine.trimEnd(),
+      lyricLine: lyricLine.trimEnd()
+    });
   }
 
   return result;
@@ -139,9 +170,7 @@ export function parseChordGrid(content: string, semitones: number): SongSection[
 
     // Check for measure pipe delimiters
     if (line.includes('|')) {
-      // Split by pipe
       const parts = line.split('|').map(p => p.trim());
-      // Discard empty edges if line starts or ends with pipe
       const barParts = parts.filter((part, idx) => {
         if (idx === 0 && !rawLine.trim().startsWith('|') && part) return true;
         if (idx === 0 && rawLine.trim().startsWith('|')) return false;
@@ -152,7 +181,6 @@ export function parseChordGrid(content: string, semitones: number): SongSection[
       for (const barStr of barParts) {
         if (!barStr && barParts.length === 1) continue;
 
-        // Extract chords inside brackets [G] or bare chords in bar
         const chordMatches = [...barStr.matchAll(/\[(.*?)\]/g)].map(m => m[1].trim());
         let chordsInMeasure: string[] = [];
 
@@ -161,7 +189,6 @@ export function parseChordGrid(content: string, semitones: number): SongSection[
             .filter(c => c !== '/' && c.length > 0)
             .map(c => transposeChord(c, semitones));
         } else {
-          // If no brackets, check if words look like chords (e.g. "G", "Cmaj7", "Am")
           const tokens = barStr.split(/\s+/).filter(t => t && t !== '/');
           const detectedChords = tokens.filter(t => /^[A-G][#b]?(m|maj|min|dim|aug|sus|add|[0-9]|\/)*$/i.test(t));
           if (detectedChords.length > 0) {
@@ -172,7 +199,7 @@ export function parseChordGrid(content: string, semitones: number): SongSection[
         measureCount++;
         currentSection.measures.push({
           id: `m_${measureCount}`,
-          chords: chordsInMeasure.length > 0 ? chordsInMeasure : ['%'], // % indicates repeat / rest
+          chords: chordsInMeasure.length > 0 ? chordsInMeasure : ['%'],
           isRepeatStart: barStr.startsWith(':'),
           isRepeatEnd: barStr.endsWith(':')
         });
@@ -184,7 +211,7 @@ export function parseChordGrid(content: string, semitones: number): SongSection[
     sections.push(currentSection);
   }
 
-  // If no measures were parsed via pipes, fallback: extract all chords line by line into 4-bar chunks
+  // Fallback: if no measures were parsed via pipes, extract all chords line by line
   if (sections.length === 0 || sections.every(s => s.measures.length === 0)) {
     const fallbackSection: SongSection = { name: 'Chords', measures: [] };
     const allChords = [...content.matchAll(/\[(.*?)\]/g)]

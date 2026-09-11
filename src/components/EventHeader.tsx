@@ -59,18 +59,18 @@ export const EventHeader: React.FC<EventHeaderProps> = ({
     <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-stage-border mb-6">
       <div>
         <div className="flex items-center gap-3">
-          <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+          <h2 className="text-2xl sm:text-3xl font-bold text-stage-text tracking-tight">
             {event.name}
           </h2>
-          <span className="text-xs font-mono px-2 py-0.5 rounded bg-zinc-800 text-zinc-300">
+          <span className="text-xs font-mono px-2 py-0.5 rounded bg-stage-hover text-stage-text">
             {event.songs.length} {event.songs.length === 1 ? 'song' : 'songs'}
           </span>
         </div>
         {(event.venue || event.date) && (
-          <div className="flex items-center gap-4 text-xs text-zinc-400 mt-1">
+          <div className="flex items-center gap-4 text-xs text-stage-muted mt-1">
             {event.venue && (
               <span className="flex items-center gap-1">
-                <MapPin className="w-3.5 h-3.5 text-zinc-500" />
+                <MapPin className="w-3.5 h-3.5 text-stage-muted" />
                 {event.venue}
               </span>
             )}
@@ -82,14 +82,14 @@ export const EventHeader: React.FC<EventHeaderProps> = ({
       {/* Action Toolbar */}
       <div className="flex items-center gap-2 flex-wrap">
         {/* Master View Switcher */}
-        <div className="flex items-center bg-zinc-800 rounded-lg p-1 border border-zinc-700/60 shadow-sm">
+        <div className="flex items-center bg-stage-hover rounded-lg p-1 border border-stage-border shadow-sm">
           <button
             onClick={() => onSetMasterViewMode('grid')}
             title="Switch all songs to Chord Grid (iReal Pro style)"
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium transition-colors ${
               masterViewMode === 'grid'
                 ? 'bg-stage-accent text-white shadow-sm'
-                : 'text-zinc-400 hover:text-zinc-200'
+                : 'text-stage-muted hover:text-stage-text'
             }`}
           >
             <Grid className="w-3.5 h-3.5" />
@@ -101,7 +101,7 @@ export const EventHeader: React.FC<EventHeaderProps> = ({
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium transition-colors ${
               masterViewMode === 'lyrics'
                 ? 'bg-stage-accent text-white shadow-sm'
-                : 'text-zinc-400 hover:text-zinc-200'
+                : 'text-stage-muted hover:text-stage-text'
             }`}
           >
             <FileText className="w-3.5 h-3.5" />
@@ -115,8 +115,8 @@ export const EventHeader: React.FC<EventHeaderProps> = ({
           title={wakeLockActive ? 'Screen wake-lock active (keeps screen awake)' : 'Enable screen wake-lock for stage'}
           className={`p-2 rounded-lg border text-xs flex items-center gap-1 transition-colors ${
             wakeLockActive
-              ? 'bg-amber-500/20 text-amber-300 border-amber-500/40'
-              : 'bg-zinc-800 text-zinc-400 border-zinc-700/60 hover:text-zinc-200'
+              ? 'bg-amber-500/20 text-amber-500 border-amber-500/40'
+              : 'bg-stage-hover text-stage-muted border-stage-border hover:text-stage-text'
           }`}
         >
           {wakeLockActive ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
@@ -127,9 +127,9 @@ export const EventHeader: React.FC<EventHeaderProps> = ({
           <button
             onClick={onResetEvent}
             title="Reset this event to repository preset"
-            className="flex items-center gap-1.5 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 hover:text-white px-3 py-2 rounded-lg text-xs font-medium border border-zinc-700/60 transition-colors"
+            className="flex items-center gap-1.5 bg-stage-hover hover:bg-stage-card text-stage-text px-3 py-2 rounded-lg text-xs font-medium border border-stage-border transition-colors"
           >
-            <RotateCcw className="w-3.5 h-3.5 text-zinc-400" />
+            <RotateCcw className="w-3.5 h-3.5 text-stage-muted" />
             <span className="hidden sm:inline">Reset Event</span>
           </button>
         )}

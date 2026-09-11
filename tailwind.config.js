@@ -9,13 +9,15 @@ export default {
     extend: {
       colors: {
         stage: {
-          bg: '#121214',
-          sidebar: '#18181b',
-          card: '#1e1e24',
-          hover: '#27272a',
-          border: '#333338',
-          accent: '#4f46e5',
-          chord: '#38bdf8',
+          bg: 'var(--bg)',
+          sidebar: 'var(--sidebar-bg)',
+          card: 'var(--card-bg)',
+          hover: 'var(--hover-bg)',
+          border: 'var(--border)',
+          accent: 'var(--accent)',
+          chord: 'var(--chord-color)',
+          text: 'var(--text)',
+          muted: 'var(--muted-text)',
         }
       }
     },

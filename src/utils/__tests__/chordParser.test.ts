@@ -12,24 +12,26 @@ describe('Chord Parser Utils', () => {
 {section: Chorus}
 | [C]Sun, [G]sun, [D]sun | [Am]here it comes |`;
 
-  it('parses lyrics view with transposed chords and stripped pipes', () => {
-    const lines = parseLyricsView(sampleSong, 2); // G -> A, D -> E, Am -> Bm
-    expect(lines.length).toBeGreaterThan(0);
+  it('parses lyrics view as two-line synchronized tabs with transposed chords above words', () => {
+    const lines = parseLyricsView(sampleSong, 2); // G -> A, D -> E, Am -> Bm, C -> D
 
-    // First non-empty should be section header
+    // Section header
     const sectionHeader = lines.find(l => l.isSectionHeader);
     expect(sectionHeader).toBeDefined();
     expect(sectionHeader?.sectionName).toBe('Verse 1');
 
-    // Chords should be transposed by +2 semitones
-    const allChords = lines
-      .flatMap(l => l.tokens)
-      .filter(t => t.type === 'chord')
-      .map(t => t.text);
+    // First line with lyrics
+    const firstLyricLine = lines.find(l => l.lyricLine && l.lyricLine.includes('Here comes the'));
+    expect(firstLyricLine).toBeDefined();
+    expect(firstLyricLine?.chordLine).toBeDefined();
 
-    expect(allChords).toContain('A');
-    expect(allChords).toContain('E');
-    expect(allChords).toContain('Bm');
+    // Chords should be transposed
+    expect(firstLyricLine?.chordLine).toContain('A');
+    expect(firstLyricLine?.chordLine).toContain('E');
+
+    // No measure slashes in the lyric text
+    expect(firstLyricLine?.lyricLine).not.toContain('/ / /');
+    expect(firstLyricLine?.lyricLine).toContain('Here comes the sun');
   });
 
   it('parses chord grid with pipe delimiters into structured sections and measures', () => {

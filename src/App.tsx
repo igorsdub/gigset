@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { useGigSetState } from './hooks/useGigSetState';
+import { useTheme } from './hooks/useTheme';
 import { Sidebar } from './components/Sidebar';
 import { EventHeader } from './components/EventHeader';
 import { SongCard } from './components/SongCard';
 import { AddSongModal } from './components/AddSongModal';
 import { NewSongModal } from './components/NewSongModal';
 import { PRESET_EVENTS } from './data/presets';
+import { exportBackup } from './utils/exportUtils';
 import { Music, Plus } from 'lucide-react';
 
 export const App: React.FC = () => {
@@ -24,6 +26,8 @@ export const App: React.FC = () => {
     resetEventToPreset,
     resetAllToPresets
   } = useGigSetState();
+
+  const { theme, toggleTheme } = useTheme();
 
   const [isAddSongModalOpen, setIsAddSongModalOpen] = useState(false);
   const [isNewSongModalOpen, setIsNewSongModalOpen] = useState(false);
@@ -57,16 +61,19 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="flex h-screen w-screen overflow-hidden bg-stage-bg text-zinc-100">
+    <div className="flex h-screen w-screen overflow-hidden bg-stage-bg text-stage-text">
       {/* Left Sidebar */}
       <Sidebar
         events={state.events}
         activeEventId={state.activeEventId}
+        theme={theme}
+        onToggleTheme={toggleTheme}
         onSelectEvent={setActiveEventId}
         onNewEvent={handleCreateNewEvent}
         onDeleteEvent={deleteEvent}
         onOpenNewSongModal={() => setIsNewSongModalOpen(true)}
         onResetAllToPresets={resetAllToPresets}
+        onExportBackup={() => exportBackup(state)}
       />
 
       {/* Main Setlist Canvas */}
@@ -84,10 +91,10 @@ export const App: React.FC = () => {
               />
 
               {activeEvent.songs.length === 0 ? (
-                <div className="text-center py-20 border-2 border-dashed border-zinc-800 rounded-2xl p-8">
-                  <Music className="w-12 h-12 text-zinc-600 mx-auto mb-3" />
-                  <h3 className="text-lg font-medium text-zinc-300">Setlist is currently empty</h3>
-                  <p className="text-sm text-zinc-500 max-w-sm mx-auto mt-1 mb-5">
+                <div className="text-center py-20 border-2 border-dashed border-stage-border rounded-2xl p-8">
+                  <Music className="w-12 h-12 text-stage-muted mx-auto mb-3" />
+                  <h3 className="text-lg font-medium text-stage-text">Setlist is currently empty</h3>
+                  <p className="text-sm text-stage-muted max-w-sm mx-auto mt-1 mb-5">
                     Add songs from your catalog to build your setlist for this event.
                   </p>
                   <button
@@ -127,9 +134,9 @@ export const App: React.FC = () => {
             </>
           ) : (
             <div className="text-center py-24">
-              <Music className="w-16 h-16 text-zinc-700 mx-auto mb-4" />
-              <h2 className="text-xl font-bold text-zinc-300">Select or Create an Event</h2>
-              <p className="text-sm text-zinc-500 mt-2 mb-6">
+              <Music className="w-16 h-16 text-stage-muted mx-auto mb-4" />
+              <h2 className="text-xl font-bold text-stage-text">Select or Create an Event</h2>
+              <p className="text-sm text-stage-muted mt-2 mb-6">
                 Choose an existing gig from the sidebar or start a fresh one.
               </p>
               <button
