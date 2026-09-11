@@ -48,4 +48,12 @@ _Avoid_: Default, template, seed data.
 The runtime browser state holding ephemeral additions, live key shifts, or setlist reorderings in localStorage.
 _Avoid_: Cache, cookie, temporary data.
 
+**Navigation Drawer**:
+A collapsible off-canvas panel housing the library and Setlist Outline on compact viewports to maximize stage reading space.
+_Avoid_: Hamburger menu, sidebar popup, slide menu, mobile drawer.
+
+**Stage Topbar**:
+A persistent, compact header bar on mobile and tablet viewports providing immediate access to the Navigation Drawer and view controls during performance.
+_Avoid_: Mobile nav, app bar, header row.
+
 
