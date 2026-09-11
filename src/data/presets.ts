@@ -109,7 +109,7 @@ export const PRESET_LIBRARY: Song[] = [
 | [G] / / / | [Em] / / / | [Bm] / / / | [D] / / / |
 
 {section: Verse 1}
-| [G]Ue o muite, [Em]aru-kou | [G] / [Em] / |
+| [G]Ue o [Em]muite, [G]aru-[Em]kou |
 | [G]Namida ga kobo-[Bm]re nai yo-[Em7]uni | [Am7] / [D7] / |
 
 {section: Chorus 1}
@@ -117,7 +117,7 @@ export const PRESET_LIBRARY: Song[] = [
 | [Em]Hito-[C]ri-[Bm]bot-[Am7]chi no [G]yoru | [C6] [Bm] [Am7] |
 
 {section: Verse 2}
-| [G]Ue o muite, [Em]aru-kou | [G] / [Em] / |
+| [G]Ue o [Em]muite, [G]aru-[Em]kou |
 | [G]Nijin-da hosi [Bm]o kazo-[Em7]e...te | [Am7] / [D7] / |
 
 {section: Chorus 2}
@@ -129,7 +129,7 @@ export const PRESET_LIBRARY: Song[] = [
 | [Cm]Shiawase wa sora [G]no ue-ni | [A9] / [D7] / |
 
 {section: Verse 3}
-| [G]Ue o muite, [Em]aru-kou | [G] / [Em] / |
+| [G]Ue o [Em]muite, [G]aru-[Em]kou |
 | [G]Namida ga kobo-[Bm]re nai yo-[Em7]uni | [Am7] / [D7] / |
 
 {section: Chorus 3}
@@ -148,7 +148,7 @@ export const PRESET_LIBRARY: Song[] = [
 | [Cm]Kanashimi wa tsuki-[G]no kage-ni | [A9] / [D7] / |
 
 {section: Verse 4 & Outro}
-| [G]Ue o muite, [Em]aru-kou | [G] / [Em] / |
+| [G]Ue o [Em]muite, [G]aru-[Em]kou |
 | [G]Namida ga kobo-[Bm]re nai yo-[Em7]uni | [Am7] / [D7] / |
 | [G]Nakinaga-[Am]ra, [C6]aru-[B7#5]ku | [B7] / / / |
 | [Em]Hito-[C]ri-[Bm]bot-[Am7]chi no [G]yoru | [C6] [Bm] [Am7] |
@@ -233,15 +233,15 @@ export const PRESET_LIBRARY: Song[] = [
 {key: G}
 
 {section: Intro}
-| [Cmaj7] [Gmaj7] [Am] [Gmaj7] |
+| [Gm] [C] [Am] [Gm] |
 
 {section: Verse 1}
-| [Cmaj7]Don't be that way |
-| Fall a[Gmaj7]part twice a day |
-| I just [Am]wish you could feel what you[Gmaj7] say |
-| [Cmaj7]Show, never tell |
-| But I [Gmaj7]know you too well |
-| Got a [Am]mood that you wish you cou[Dsus2]ld sell[D] |
+| [Gm]Don't be that way |
+| [C]Fall apart twice a day |
+| [Am]I just wish you could feel what you say [Gm] |
+| [Gm]Show, never tell |
+| [C]But I know you too well |
+| [Am]Got a mood that you wish you could sell [Gm] |
 
 {section: Chorus}
 | If [Cmaj7]teardrops could be bottled |
@@ -249,16 +249,16 @@ export const PRESET_LIBRARY: Song[] = [
 | Told "that t[Am]ight dress is what makes you a w[B7]hore" |
 | If "I [Cmaj7]love you" was a promise |
 | Would you [Gmaj7]break it, if you're honest |
-| Tell the [Am]mirror what you know she's heard be[D]fore[Dsus2]      [D] |
+| Tell the [Am]mirror what you know she's heard be[D]fore[Dsus2]      [D] |
 | [Cmaj7]Idontwanna[B7]beyouanym[Em]ore |
 
 {section: Verse 2}
-| [Cmaj7]Hands getting cold |
-| Losing [Gmaj7]feeling's getting old |
-| Was I [Am]made from a brok[Gmaj7]en mold? |
-| [Cmaj7]Hurt, I can't shake |
-| We've made [Gmaj7]every mistake |
-| Only [Am]you know the way that [D]I br[Dsus2]eak   [D] |
+| [Gm]Hands getting cold |
+| [C]Losing feeling's getting old |
+| [Am]Was I made from a broken mold? [Gm] |
+| [Gm]Hurt, I can't shake |
+| [C]We've made every mistake |
+| [Am]Only you know the way that I break [Gm] |
 
 {section: Chorus}
 | If [Cmaj7]teardrops could be bottled |
@@ -266,7 +266,7 @@ export const PRESET_LIBRARY: Song[] = [
 | Told "that t[Am]ight dress is what makes you a w[B7]hore" |
 | If "I [Cmaj7]love you" was a promise |
 | Would you [Gmaj7]break it, if you're honest |
-| Tell the [Am]mirror what you know she's heard be[D]fore[Dsus2]      [D] |
+| Tell the [Am]mirror what you know she's heard be[D]fore[Dsus2]      [D] |
 | [Cmaj7]Idontwanna[B7]beyou |
 | [Cmaj7]Idontwanna[B7]beyou |
 | [Cmaj7]Idontwanna[B7]beyou... anym[Emadd9]ore |`
@@ -346,12 +346,6 @@ export const PRESET_LIBRARY: Song[] = [
     content: `{title: Odoriko}
 {artist: Vaundy}
 {key: G}
-
-| [G] |
-| [B7] |
-| [Em] |
-| [C] |
-| [Cm] |
 
 {section: Intro}
 | [G] [B7] [Em] [C] |
@@ -581,9 +575,7 @@ export const PRESET_LIBRARY: Song[] = [
 {key: Dm}
 
 {section: Intro}
-| [Bbmaj7] [Fmaj9/A] [Gm9] [Bbmaj7/F] [Eb9] |
-| [Bbmaj7] [Am7] [D] |
-
+| [Gm9] [C7b9] [Am7] [Dm7] |
 | [Gm9] [C7b9] [Am7] [Dm7] |
 
 {section: Verse 1}
