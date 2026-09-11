@@ -198,6 +198,11 @@ export const Sidebar: React.FC<SidebarProps> = ({
                                 <span className="truncate font-medium text-stage-text">
                                   {song.title}
                                 </span>
+                                {entry.performer && (
+                                  <span className="text-[10px] text-stage-muted truncate max-w-[75px] hidden sm:inline" title={`Performer: ${entry.performer}`}>
+                                    ({entry.performer})
+                                  </span>
+                                )}
                               </div>
 
                               <div className="flex items-center gap-1 shrink-0 ml-1.5">

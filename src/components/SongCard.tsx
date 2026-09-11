@@ -4,7 +4,7 @@ import { ChordView } from './ChordView';
 import { LyricsView } from './LyricsView';
 import { shiftNote, formatKeyShift } from '../utils/musicTheory';
 import { exportSongChordPro } from '../utils/exportUtils';
-import { Grid, FileText, Trash2, Download, RotateCcw } from 'lucide-react';
+import { Grid, FileText, Trash2, Download, RotateCcw, ExternalLink } from 'lucide-react';
 
 interface SongCardProps {
   song: Song;
@@ -45,8 +45,13 @@ export const SongCard: React.FC<SongCardProps> = ({
               <span className="text-xs font-mono text-stage-muted">#{index + 1}</span>
               <h3 className="font-semibold text-lg text-stage-text truncate">{song.title}</h3>
               <span className="text-sm text-stage-muted hidden sm:inline">- {song.artist}</span>
+              {entry.performer && (
+                <span className="px-2 py-0.5 rounded-full bg-stage-accent/15 text-stage-accent border border-stage-accent/30 text-xs font-medium">
+                  {entry.performer}
+                </span>
+              )}
             </div>
-            <div className="flex items-center gap-3 text-xs text-stage-muted mt-0.5">
+            <div className="flex items-center gap-3 text-xs text-stage-muted mt-0.5 flex-wrap">
               <span>
                 Key: <strong className="text-stage-text font-mono">{currentKey}</strong>
                 {isShifted && (
@@ -57,6 +62,18 @@ export const SongCard: React.FC<SongCardProps> = ({
                 Shift: {formatKeyShift(entry.transpose)}
               </span>
               {song.tempo && <span>{song.tempo} BPM</span>}
+              {song.referenceUrl && (
+                <a
+                  href={song.referenceUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Listen to reference track on YouTube Music"
+                  className="inline-flex items-center gap-1 text-stage-accent hover:underline decoration-dotted transition-colors"
+                >
+                  <ExternalLink className="w-3 h-3" />
+                  <span>YouTube Music</span>
+                </a>
+              )}
             </div>
           </div>
         </div>
