@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import { useGigSetState } from './hooks/useGigSetState';
-import { useTheme } from './hooks/useTheme';
 import { Sidebar } from './components/Sidebar';
 import { EventHeader } from './components/EventHeader';
 import { SongCard } from './components/SongCard';
 import { AddSongModal } from './components/AddSongModal';
 import { NewSongModal } from './components/NewSongModal';
-import { PRESET_EVENTS } from './data/presets';
 import { exportBackup } from './utils/exportUtils';
 import { Music, Plus } from 'lucide-react';
 
@@ -16,6 +14,7 @@ export const App: React.FC = () => {
     setActiveEventId,
     setMasterViewMode,
     shiftSongKey,
+    resetSongKey,
     moveSong,
     removeSongFromEvent,
     addSongToEvent,
@@ -23,18 +22,14 @@ export const App: React.FC = () => {
     createNewEvent,
     deleteEvent,
     addSongToLibrary,
-    resetEventToPreset,
     resetAllToPresets
   } = useGigSetState();
-
-  const { theme, toggleTheme } = useTheme();
 
   const [isAddSongModalOpen, setIsAddSongModalOpen] = useState(false);
   const [isNewSongModalOpen, setIsNewSongModalOpen] = useState(false);
   const [draggedIndex, setDraggedIndex] = useState<number | null>(null);
 
   const activeEvent = state.events.find(e => e.id === state.activeEventId);
-  const isPresetEvent = activeEvent ? PRESET_EVENTS.some(pe => pe.id === activeEvent.id) : false;
 
   const handleCreateNewEvent = () => {
     const name = window.prompt('Enter Event Name (e.g. Saturday Night Jam):');
@@ -66,8 +61,6 @@ export const App: React.FC = () => {
       <Sidebar
         events={state.events}
         activeEventId={state.activeEventId}
-        theme={theme}
-        onToggleTheme={toggleTheme}
         onSelectEvent={setActiveEventId}
         onNewEvent={handleCreateNewEvent}
         onDeleteEvent={deleteEvent}
@@ -84,10 +77,8 @@ export const App: React.FC = () => {
               <EventHeader
                 event={activeEvent}
                 masterViewMode={state.masterViewMode}
-                isPreset={isPresetEvent}
                 onSetMasterViewMode={setMasterViewMode}
                 onAddSong={() => setIsAddSongModalOpen(true)}
-                onResetEvent={() => resetEventToPreset(activeEvent.id)}
               />
 
               {activeEvent.songs.length === 0 ? (
@@ -120,6 +111,7 @@ export const App: React.FC = () => {
                         totalSongs={activeEvent.songs.length}
                         masterViewMode={state.masterViewMode}
                         onShiftKey={amt => shiftSongKey(activeEvent.id, idx, amt)}
+                        onResetKey={() => resetSongKey(activeEvent.id, idx)}
                         onMove={dir => moveSong(activeEvent.id, idx, idx + dir)}
                         onRemove={() => removeSongFromEvent(activeEvent.id, idx)}
                         onToggleViewMode={() => toggleSongViewMode(activeEvent.id, idx)}

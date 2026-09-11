@@ -1,10 +1,10 @@
 import React from 'react';
 import { Song, SongEntry, ViewMode } from '../types';
-import { ChordGridView } from './ChordGridView';
+import { ChordView } from './ChordView';
 import { LyricsView } from './LyricsView';
 import { shiftNote, formatKeyShift } from '../utils/musicTheory';
 import { exportSongChordPro } from '../utils/exportUtils';
-import { Grid, FileText, ChevronUp, ChevronDown, Trash2, GripVertical, Download } from 'lucide-react';
+import { Grid, FileText, ChevronUp, ChevronDown, Trash2, GripVertical, Download, RotateCcw } from 'lucide-react';
 
 interface SongCardProps {
   song: Song;
@@ -13,6 +13,7 @@ interface SongCardProps {
   totalSongs: number;
   masterViewMode: ViewMode;
   onShiftKey: (amount: number) => void;
+  onResetKey: () => void;
   onMove: (direction: number) => void;
   onRemove: () => void;
   onToggleViewMode: () => void;
@@ -28,6 +29,7 @@ export const SongCard: React.FC<SongCardProps> = ({
   totalSongs,
   masterViewMode,
   onShiftKey,
+  onResetKey,
   onMove,
   onRemove,
   onToggleViewMode,
@@ -36,6 +38,7 @@ export const SongCard: React.FC<SongCardProps> = ({
   onDrop
 }) => {
   const effectiveViewMode = entry.viewModeOverride || masterViewMode;
+  const isChordView = effectiveViewMode === 'chord' || effectiveViewMode === 'grid';
   const currentKey = shiftNote(song.defaultKey, entry.transpose);
 
   return (
@@ -81,10 +84,10 @@ export const SongCard: React.FC<SongCardProps> = ({
           {/* View mode toggle */}
           <button
             onClick={onToggleViewMode}
-            title={`Switch to ${effectiveViewMode === 'grid' ? 'Lyrics & Chords' : 'Chord Grid'} view`}
+            title={`Switch to ${isChordView ? 'Lyrics View' : 'Chord View'}`}
             className="flex items-center gap-1 bg-stage-hover hover:bg-stage-accent hover:text-white text-stage-text px-2.5 py-1.5 rounded-lg text-xs font-medium border border-stage-border transition-colors"
           >
-            {effectiveViewMode === 'grid' ? (
+            {isChordView ? (
               <>
                 <FileText className="w-3.5 h-3.5 text-stage-accent" />
                 <span className="hidden sm:inline">Lyrics</span>
@@ -92,12 +95,12 @@ export const SongCard: React.FC<SongCardProps> = ({
             ) : (
               <>
                 <Grid className="w-3.5 h-3.5 text-stage-chord" />
-                <span className="hidden sm:inline">Grid</span>
+                <span className="hidden sm:inline">Chords</span>
               </>
             )}
           </button>
 
-          {/* Key shifts */}
+          {/* Key shifts & Reset Key */}
           <div className="flex items-center bg-stage-hover rounded-lg border border-stage-border p-0.5">
             <button
               onClick={() => onShiftKey(-1)}
@@ -114,6 +117,19 @@ export const SongCard: React.FC<SongCardProps> = ({
             >
               Key +1
             </button>
+            {entry.transpose !== 0 && (
+              <>
+                <div className="w-[1px] h-3 bg-stage-border"></div>
+                <button
+                  onClick={onResetKey}
+                  title={`Reset key to original preset (${song.defaultKey})`}
+                  className="flex items-center gap-1 px-2 py-1 text-xs text-amber-400 hover:text-amber-300 hover:bg-stage-card rounded transition-colors font-medium"
+                >
+                  <RotateCcw className="w-3 h-3" />
+                  <span>Reset Key</span>
+                </button>
+              </>
+            )}
           </div>
 
           {/* Reordering */}
@@ -159,8 +175,8 @@ export const SongCard: React.FC<SongCardProps> = ({
 
       {/* Content Rendering */}
       <div className="overflow-x-auto">
-        {effectiveViewMode === 'grid' ? (
-          <ChordGridView content={song.content} transpose={entry.transpose} />
+        {isChordView ? (
+          <ChordView content={song.content} transpose={entry.transpose} />
         ) : (
           <LyricsView content={song.content} transpose={entry.transpose} />
         )}

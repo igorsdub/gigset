@@ -1,13 +1,10 @@
 import React from 'react';
 import { Event } from '../types';
-import { Theme } from '../hooks/useTheme';
-import { Music, Plus, RotateCcw, Calendar, Trash2, Download, Sun, Moon } from 'lucide-react';
+import { Music, Plus, RotateCcw, Calendar, Trash2, Download } from 'lucide-react';
 
 interface SidebarProps {
   events: Event[];
   activeEventId: string | null;
-  theme: Theme;
-  onToggleTheme: () => void;
   onSelectEvent: (id: string) => void;
   onNewEvent: () => void;
   onDeleteEvent: (id: string) => void;
@@ -19,8 +16,6 @@ interface SidebarProps {
 export const Sidebar: React.FC<SidebarProps> = ({
   events,
   activeEventId,
-  theme,
-  onToggleTheme,
   onSelectEvent,
   onNewEvent,
   onDeleteEvent,
@@ -44,26 +39,15 @@ export const Sidebar: React.FC<SidebarProps> = ({
           </div>
         </div>
 
-        <div className="flex items-center gap-1.5">
-          {/* Theme Toggle */}
-          <button
-            onClick={onToggleTheme}
-            title={theme === 'dark' ? 'Switch to Paper Light mode' : 'Switch to Stage Dark mode'}
-            className="p-1.5 rounded-lg text-stage-muted hover:text-stage-text hover:bg-stage-hover transition-colors"
-          >
-            {theme === 'dark' ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-indigo-600" />}
-          </button>
-
-          {/* New Event */}
-          <button
-            onClick={onNewEvent}
-            title="Create a new event"
-            className="flex items-center gap-1 bg-stage-accent hover:opacity-90 text-white text-xs font-semibold px-2.5 py-1.5 rounded-lg transition-opacity shadow"
-          >
-            <Plus className="w-3.5 h-3.5" />
-            <span>New</span>
-          </button>
-        </div>
+        {/* New Event */}
+        <button
+          onClick={onNewEvent}
+          title="Create a new event"
+          className="flex items-center gap-1 bg-stage-accent hover:opacity-90 text-white text-xs font-semibold px-2.5 py-1.5 rounded-lg transition-opacity shadow"
+        >
+          <Plus className="w-3.5 h-3.5" />
+          <span>New</span>
+        </button>
       </div>
 
       {/* Events List */}

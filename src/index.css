@@ -14,24 +14,11 @@
   --muted-text: #a1a1aa;
 }
 
-html.light {
-  --bg: #f8fafc;
-  --sidebar-bg: #f1f5f9;
-  --card-bg: #ffffff;
-  --hover-bg: #e2e8f0;
-  --border: #cbd5e1;
-  --accent: #4f46e5;
-  --chord-color: #0284c7;
-  --text: #0f172a;
-  --muted-text: #64748b;
-}
-
 body {
   background-color: var(--bg);
   color: var(--text);
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  transition: background-color 0.15s ease, color 0.15s ease;
 }
 
 /* Custom scrollbars */
@@ -58,7 +45,7 @@ body {
   font-size: 1.05rem;
 }
 
-/* iReal Pro Style Measure Box */
+/* Measure Box */
 .measure-box {
   min-height: 68px;
   display: flex;

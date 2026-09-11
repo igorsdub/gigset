@@ -1,4 +1,4 @@
-export type ViewMode = 'grid' | 'lyrics';
+export type ViewMode = 'chord' | 'lyrics' | 'grid';
 
 export interface Song {
   id: string;

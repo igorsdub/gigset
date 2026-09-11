@@ -57,6 +57,23 @@ export function useGigSetState() {
     }));
   }, []);
 
+  const resetSongKey = useCallback((eventId: string, songIndex: number) => {
+    setState(prev => ({
+      ...prev,
+      events: prev.events.map(evt => {
+        if (evt.id !== eventId) return evt;
+        const updatedSongs = [...evt.songs];
+        if (updatedSongs[songIndex]) {
+          updatedSongs[songIndex] = {
+            ...updatedSongs[songIndex],
+            transpose: 0
+          };
+        }
+        return { ...evt, songs: updatedSongs };
+      })
+    }));
+  }, []);
+
   const moveSong = useCallback((eventId: string, fromIndex: number, toIndex: number) => {
     setState(prev => ({
       ...prev,
@@ -180,6 +197,7 @@ export function useGigSetState() {
     setActiveEventId,
     setMasterViewMode,
     shiftSongKey,
+    resetSongKey,
     moveSong,
     removeSongFromEvent,
     addSongToEvent,

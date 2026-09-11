@@ -20,9 +20,9 @@ _Avoid_: Sub-set, playlist, section.
 A reference to a Song placed at an ordered index inside a Set, which can specify event-specific overrides like transposed key, tempo change, or performance cue notes.
 _Avoid_: Playlist item, setlist item.
 
-**Chord Grid View**:
+**Chord View**:
 A structured, measure-by-measure visualization of harmonic progression and song form (e.g., AABA), highlighting bars, repeats, and rehearsal marks.
-_Avoid_: iReal view, box view, lead sheet.
+_Avoid_: iReal view, box view, grid view, lead sheet.
 
 **Lyrics View**:
 A formatted representation presenting lyrics with chords aligned directly above syllables in classic two-line monospace tab layout, avoiding any visual overlap.

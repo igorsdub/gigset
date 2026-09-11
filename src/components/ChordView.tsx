@@ -1,12 +1,12 @@
 import React from 'react';
 import { parseChordGrid } from '../utils/chordParser';
 
-interface ChordGridViewProps {
+interface ChordViewProps {
   content: string;
   transpose: number;
 }
 
-export const ChordGridView: React.FC<ChordGridViewProps> = ({ content, transpose }) => {
+export const ChordView: React.FC<ChordViewProps> = ({ content, transpose }) => {
   const sections = parseChordGrid(content, transpose);
 
   if (sections.length === 0) {
