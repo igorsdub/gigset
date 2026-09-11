@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { AppState, Song, Event, ViewMode } from '../types';
-import { INITIAL_APP_STATE, PRESET_EVENTS } from '../data/presets';
+import { INITIAL_APP_STATE, PRESET_EVENTS, PRESET_LIBRARY } from '../data/presets';
 
 const STORAGE_KEY = 'gigset_data';
 
@@ -11,10 +11,24 @@ export function useGigSetState() {
       if (stored) {
         const parsed = JSON.parse(stored);
         if (parsed && Array.isArray(parsed.library) && Array.isArray(parsed.events)) {
+          const existingEventIds = new Set(parsed.events.map((e: Event) => e.id));
+          const mergedEvents = [
+            ...parsed.events,
+            ...PRESET_EVENTS.filter(pe => !existingEventIds.has(pe.id))
+          ];
+          const existingSongIds = new Set(parsed.library.map((s: Song) => s.id));
+          const mergedLibrary = [
+            ...parsed.library,
+            ...PRESET_LIBRARY.filter(ps => !existingSongIds.has(ps.id))
+          ];
           return {
             ...INITIAL_APP_STATE,
             ...parsed,
-            activeEventId: parsed.activeEventId || parsed.events[0]?.id || null
+            events: mergedEvents,
+            library: mergedLibrary,
+            activeEventId: existingEventIds.has(INITIAL_APP_STATE.activeEventId || '')
+              ? parsed.activeEventId || INITIAL_APP_STATE.activeEventId
+              : INITIAL_APP_STATE.activeEventId || mergedEvents[0]?.id || null
           };
         }
       }
