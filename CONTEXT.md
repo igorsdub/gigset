@@ -36,3 +36,12 @@ _Avoid_: Performance screen, gig display, live view.
 A unit of musical time bounded by pipe delimiters (`|`) containing chord changes and beats within a song section.
 _Avoid_: Barline, cell, chord box.
 
+**Preset**:
+The baseline, immutable catalog of Songs and preconfigured Events defined in repository files on the main branch.
+_Avoid_: Default, template, seed data.
+
+**Local State**:
+The runtime browser state holding ephemeral additions, live key shifts, or setlist reorderings in localStorage.
+_Avoid_: Cache, cookie, temporary data.
+
+
