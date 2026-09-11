@@ -25,7 +25,7 @@ A structured, measure-by-measure visualization of harmonic progression and song 
 _Avoid_: iReal view, box view, lead sheet.
 
 **Lyrics View**:
-A formatted representation presenting lyrics with chords positioned above or inline with vocal phrasing.
+A formatted representation presenting lyrics with chords aligned directly above syllables in classic two-line monospace tab layout, avoiding any visual overlap.
 _Avoid_: Tab view, chordsheet, guitar tab.
 
 **Stage Mode**:
