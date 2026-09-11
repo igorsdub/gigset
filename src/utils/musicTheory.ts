@@ -14,9 +14,18 @@ export function normalizeNote(note: string): string {
   return FLAT_EQUIVALENTS[note] || note;
 }
 
-export function shiftNote(note: string, semitones: number, preferFlats = false): string {
+export function shiftNote(note: string, semitones: number, preferFlats?: boolean): string {
   if (semitones === 0) return note;
-  const normalized = normalizeNote(note);
+
+  const match = note.match(/^([A-G][#b]?)(.*)$/);
+  if (!match) return note;
+
+  const root = match[1];
+  const suffix = match[2];
+
+  const useFlats = preferFlats !== undefined ? preferFlats : root.includes('b');
+
+  const normalized = normalizeNote(root);
   const index = CHROMATIC_SCALE.indexOf(normalized);
   if (index === -1) return note;
 
@@ -24,7 +33,7 @@ export function shiftNote(note: string, semitones: number, preferFlats = false):
   if (newIndex < 0) newIndex += 12;
 
   const resultNote = CHROMATIC_SCALE[newIndex];
-  if (preferFlats) {
+  if (useFlats) {
     const sharpToFlat: Record<string, string> = {
       'C#': 'Db',
       'D#': 'Eb',
@@ -32,9 +41,9 @@ export function shiftNote(note: string, semitones: number, preferFlats = false):
       'G#': 'Ab',
       'A#': 'Bb'
     };
-    return sharpToFlat[resultNote] || resultNote;
+    return `${sharpToFlat[resultNote] || resultNote}${suffix}`;
   }
-  return resultNote;
+  return `${resultNote}${suffix}`;
 }
 
 /**

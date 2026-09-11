@@ -16,6 +16,13 @@ describe('Music Theory Utils', () => {
     expect(shiftNote('Db', 1)).toBe('D');
   });
 
+  it('preserves key quality suffixes such as minor keys when shifting notes', () => {
+    expect(shiftNote('Gm', 2)).toBe('Am');
+    expect(shiftNote('Dm', -2)).toBe('Cm');
+    expect(shiftNote('Dm', -1)).toBe('C#m');
+    expect(shiftNote('Bm', 1)).toBe('Cm');
+  });
+
   it('transposes complex chords preserving qualities', () => {
     expect(transposeChord('Cmaj7', 2)).toBe('Dmaj7');
     expect(transposeChord('Am7b5', 2)).toBe('Bm7b5');

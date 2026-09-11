@@ -8,12 +8,15 @@ export interface Song {
   tempo?: number;
   timeSignature?: string;
   content: string; // Extended ChordPro with pipe delimiters '|'
+  referenceUrl?: string;
 }
 
 export interface SongEntry {
   libraryId: string;
   transpose: number; // Semitone offset from song.defaultKey
   viewModeOverride?: ViewMode; // If undefined, inherits masterViewMode
+  performer?: string;
+  targetKey?: string; // Explicit key override (e.g. 'Db') to preserve desired enharmonic spelling
 }
 
 export interface Event {
