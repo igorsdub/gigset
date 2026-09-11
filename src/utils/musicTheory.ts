@@ -16,7 +16,14 @@ export function normalizeNote(note: string): string {
 
 export function shiftNote(note: string, semitones: number, preferFlats = false): string {
   if (semitones === 0) return note;
-  const normalized = normalizeNote(note);
+
+  const match = note.match(/^([A-G][#b]?)(.*)$/);
+  if (!match) return note;
+
+  const root = match[1];
+  const suffix = match[2];
+
+  const normalized = normalizeNote(root);
   const index = CHROMATIC_SCALE.indexOf(normalized);
   if (index === -1) return note;
 
@@ -32,9 +39,9 @@ export function shiftNote(note: string, semitones: number, preferFlats = false):
       'G#': 'Ab',
       'A#': 'Bb'
     };
-    return sharpToFlat[resultNote] || resultNote;
+    return `${sharpToFlat[resultNote] || resultNote}${suffix}`;
   }
-  return resultNote;
+  return `${resultNote}${suffix}`;
 }
 
 /**

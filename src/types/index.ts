@@ -8,12 +8,14 @@ export interface Song {
   tempo?: number;
   timeSignature?: string;
   content: string; // Extended ChordPro with pipe delimiters '|'
+  referenceUrl?: string;
 }
 
 export interface SongEntry {
   libraryId: string;
   transpose: number; // Semitone offset from song.defaultKey
   viewModeOverride?: ViewMode; // If undefined, inherits masterViewMode
+  performer?: string;
 }
 
 export interface Event {
