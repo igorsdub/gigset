@@ -36,6 +36,10 @@ _Avoid_: Performance screen, gig display, live view.
 A unit of musical time bounded by pipe delimiters (`|`) containing chord changes and beats within a song section.
 _Avoid_: Barline, cell, chord box.
 
+**Setlist Outline**:
+A compact navigational and ordering sub-list within the sidebar displaying the sequential Song Entries of the currently active Event, featuring drag-and-drop reordering handles and quick scroll navigation.
+_Avoid_: Song menu, side playlist, reorder drawer.
+
 **Preset**:
 The baseline, immutable catalog of Songs and preconfigured Events defined in repository files on the main branch.
 _Avoid_: Default, template, seed data.
